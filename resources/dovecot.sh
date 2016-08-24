@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/usr/sbin/dovecot
+/usr/sbin/dovecot -F
