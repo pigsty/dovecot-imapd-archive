@@ -7,15 +7,13 @@ FROM phusion/baseimage:0.9.18
 
 MAINTAINER Maintaner Name
 
-RUN apt-get update
-
-RUN apt-get install -y tar dovecot-imapd
+RUN apt-get update && \
+  apt-get install -y tar dovecot-imapd && \
+  apt-get clean && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 143
 
 VOLUME /home
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["/sbin/my_init"]
 
